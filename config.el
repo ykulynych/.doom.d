@@ -14,9 +14,6 @@
  css-indent-offset 2
  +magit-hub-features t)
 
-(flycheck-add-mode 'javascript-eslint 'web-mode)
-(add-hook 'flycheck-mode-hook 'add-node-modules-path)
-
 (add-hook!
   js2-mode 'prettier-js-mode
   (add-hook 'before-save-hook #'refmt-before-save nil t))
