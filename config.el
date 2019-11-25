@@ -14,6 +14,10 @@
  css-indent-offset 2
  +magit-hub-features t)
 
+(eval-after-load 'flycheck
+  '(custom-set-variables
+    '(flycheck-disabled-checkers '(javascript-jshint javascript-jscs json-jsonlist))))
+
 (add-hook!
   js2-mode 'prettier-js-mode
   (add-hook 'before-save-hook #'refmt-before-save nil t))

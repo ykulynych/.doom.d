@@ -193,3 +193,4 @@
  ;; If there is more than one, they won't work right.
  )
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
+(add-hook 'after-init-hook #'global-flycheck-mode)
