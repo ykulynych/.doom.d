@@ -18,6 +18,9 @@
   '(custom-set-variables
     '(flycheck-disabled-checkers '(javascript-jshint javascript-jscs json-jsonlist))))
 
+(after! js2-mode
+  (set-company-backend! 'js2-mode '(company-tide :with company-yasnippet)))
+
 (add-hook!
   js2-mode 'prettier-js-mode
   (add-hook 'before-save-hook #'refmt-before-save nil t))
