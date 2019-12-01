@@ -7,3 +7,5 @@
 (package! move-text)
 (package! vue-mode)
 (package! add-node-modules-path)
+(package! org-super-agenda)
+(package! org-fancy-priorities)

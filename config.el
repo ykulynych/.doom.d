@@ -12,7 +12,20 @@
  prettier-js-args '("--single-quote")
  dired-dwim-target t
  css-indent-offset 2
- +magit-hub-features t)
+ +magit-hub-features t
+ org-agenda-files (directory-files-recursively "~/org/" "\.org$") 
+ org-super-agenda-groups '((:name "Today"
+                                  :time-grid t
+                                  :sheduled today)
+                           (:name "Due today"
+                                  :deadline today)
+                           (:name "Overdue"
+                                  :deadline past)
+                           (:name "Doue soon"
+                                  :deadline future)))
+
+(after! org
+  (setq org-fancy-priorities-list '("⚡" "⬆" "⬇" "☕")))
 
 (eval-after-load 'flycheck
   '(custom-set-variables
