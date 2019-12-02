@@ -13,7 +13,7 @@
  dired-dwim-target t
  css-indent-offset 2
  +magit-hub-features t
- org-agenda-files (directory-files-recursively "~/Documents/org/" "\.org$")
+ org-agenda-files (directory-files-recursively "~/Library/Mobile Documents/com~apple~CloudDocs/org/" "\.org$")
  org-super-agenda-groups '((:name "Today"
                                   :time-grid t
                                   :sheduled today)
