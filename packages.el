@@ -9,3 +9,6 @@
 (package! add-node-modules-path)
 (package! org-super-agenda)
 (package! org-fancy-priorities)
+(package! emojify)
+(package! oauth2)
+(package! slack)

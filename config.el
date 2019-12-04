@@ -46,3 +46,5 @@
     '(progn
        (add-hook 'web-mode-hook #'add-node-modules-path)
        (add-hook 'web-mode-hook #'prettier-js-mode)))
+
+(load "~/Library/Mobile Documents/com~apple~CloudDocs/emacs.private/slack.el")
