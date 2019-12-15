@@ -42,9 +42,18 @@
   web-mode-hook 'prettier-js-mode
   (add-hook 'before-save-hook #'refmt-before-save nil t))
 
+(add-hook!
+  typescript-mode-hook 'prettier-js-mode
+  (add-hook 'before-save-hook #'refmt-before-save nil t))
+
 (eval-after-load 'web-mode
     '(progn
        (add-hook 'web-mode-hook #'add-node-modules-path)
        (add-hook 'web-mode-hook #'prettier-js-mode)))
+
+(eval-after-load 'typescript-mode
+    '(progn
+       (add-hook 'typescript-mode-hook #'add-node-modules-path)
+       (add-hook 'typescript-mode-hook #'prettier-js-mode)))
 
 (load "~/Library/Mobile Documents/com~apple~CloudDocs/emacs.private/slack.el")
