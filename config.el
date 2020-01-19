@@ -54,6 +54,7 @@
 (eval-after-load 'typescript-mode
     '(progn
        (add-hook 'typescript-mode-hook #'add-node-modules-path)
-       (add-hook 'typescript-mode-hook #'prettier-js-mode)))
+       (add-hook 'typescript-mode-hook #'prettier-js-mode)
+       (define-key evil-normal-state-map (kbd "M-.") #'tide-jump-to-definition)))
 
 (load "~/Library/Mobile Documents/com~apple~CloudDocs/emacs.private/slack.el")
