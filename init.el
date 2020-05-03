@@ -192,6 +192,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
+(add-hook 'after-init-hook 'toggle-frame-fullscreen t)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (add-hook 'after-init-hook #'global-company-mode)

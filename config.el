@@ -35,16 +35,16 @@
   (set-company-backend! 'js2-mode '(company-tide :with company-yasnippet)))
 
 (add-hook!
-  js2-mode 'prettier-js-mode
-  (add-hook 'before-save-hook #'refmt-before-save nil t))
+  js2-mode 'prettier-js-mode)
+;;   (add-hook 'before-save-hook #'refmt-before-save nil t))
 
 (add-hook!
-  web-mode-hook 'prettier-js-mode
-  (add-hook 'before-save-hook #'refmt-before-save nil t))
+  web-mode-hook 'prettier-js-mode)
+;;   (add-hook 'before-save-hook #'refmt-before-save nil t))
 
 (add-hook!
-  typescript-mode-hook 'prettier-js-mode
-  (add-hook 'before-save-hook #'refmt-before-save nil t))
+  typescript-mode-hook 'prettier-js-mode)
+;;   (add-hook 'before-save-hook #'refmt-before-save nil t))
 
 (eval-after-load 'web-mode
     '(progn
