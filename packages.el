@@ -1,6 +1,8 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; .doom.d/packages.el
 
+(package! tide)
+(package! ng2-mode)
 (package! ob-typescript)
 (package! indium)
 (package! prettier-js)
@@ -11,4 +13,3 @@
 (package! org-fancy-priorities)
 (package! emojify)
 (package! oauth2)
-(package! slack)

@@ -2,14 +2,13 @@
 
 ;; Place your private configuration here
 (setq
- projectile-project-search-path '("~/Documents/work/")
+ projectile-project-search-path '("~/work/")
  web-mode-markup-indent-offset 2
  web-mode-code-indent-offset 2
  web-mode-css-indent-offset 2
  js-indent-level 2
  typescript-indent-level 2
  json-reformat:indent-width 2
- prettier-js-args '("--single-quote")
  dired-dwim-target t
  css-indent-offset 2
  +magit-hub-features t
@@ -34,18 +33,6 @@
 (after! js2-mode
   (set-company-backend! 'js2-mode '(company-tide :with company-yasnippet)))
 
-(add-hook!
-  js2-mode 'prettier-js-mode)
-;;   (add-hook 'before-save-hook #'refmt-before-save nil t))
-
-(add-hook!
-  web-mode-hook 'prettier-js-mode)
-;;   (add-hook 'before-save-hook #'refmt-before-save nil t))
-
-(add-hook!
-  typescript-mode-hook 'prettier-js-mode)
-;;   (add-hook 'before-save-hook #'refmt-before-save nil t))
-
 (eval-after-load 'web-mode
     '(progn
        (add-hook 'web-mode-hook #'add-node-modules-path)
@@ -57,4 +44,8 @@
        (add-hook 'typescript-mode-hook #'prettier-js-mode)
        (define-key evil-normal-state-map (kbd "M-.") #'tide-jump-to-definition)))
 
-(load "~/Library/Mobile Documents/com~apple~CloudDocs/emacs.private/slack.el")
+(eval-after-load 'typescript-tsx-mode
+    '(progn
+       (add-hook 'typescript-tsx-mode-hook #'add-node-modules-path)
+       (add-hook 'typescript-tsx-mode-hook #'prettier-js-mode)
+       (define-key evil-normal-state-map (kbd "M-.") #'tide-jump-to-definition)))
