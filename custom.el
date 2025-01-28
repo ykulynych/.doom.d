@@ -33,12 +33,3 @@
 ;; formats the buffer before saving
 ;; (add-hook 'before-save-hook 'tide-format-before-save)
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
-(add-hook 'typescript-mode-hook
-          (progn
-            (define-key evil-normal-state-map (kbd "M-.") #'tide-jump-to-definition)
-            (define-key evil-normal-state-map (kbd "M-,") #'tide-jump-back)))
-
-(add-hook 'go-mode-hook
-          (progn
-            (define-key evil-normal-state-map (kbd "C-.") #'godef-jump)
-            (define-key evil-normal-state-map (kbd "C-,") #'xref-go-back)))

@@ -12,7 +12,6 @@
  dired-dwim-target t
  css-indent-offset 2
  +magit-hub-features t
- org-agenda-files (directory-files-recursively "~/org/" "\.org$")
  org-super-agenda-groups '((:name "Today"
                             :time-grid t
                             :sheduled today)
@@ -44,7 +43,9 @@
 (eval-after-load 'typescript-mode
   '(progn
      (add-hook 'typescript-mode-hook #'add-node-modules-path)
-     (add-hook 'typescript-mode-hook #'prettier-js-mode)))
+     (add-hook 'typescript-mode-hook #'prettier-js-mode)
+     (define-key evil-normal-state-map (kbd "M-.") #'tide-jump-to-definition)
+     (define-key evil-normal-state-map (kbd "M-,") #'tide-jump-back)))
 
 (eval-after-load 'typescript-tsx-mode
   '(progn
@@ -53,4 +54,6 @@
 
 (eval-after-load 'go-mode
   '(progn
-     (add-hook 'before-save-hook #'gofmt-before-save)))
+     (add-hook 'before-save-hook #'gofmt-before-save)
+     (define-key evil-normal-state-map (kbd "C-.") #'godef-jump)
+     (define-key evil-normal-state-map (kbd "C-,") #'xref-go-back)))
