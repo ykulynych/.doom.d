@@ -13,3 +13,5 @@
 (package! org-fancy-priorities)
 (package! emojify)
 (package! oauth2)
+(package! lsp-mode)
+(package! dap-mode)

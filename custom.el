@@ -5,7 +5,8 @@
  ;; If there is more than one, they won't work right.
  '(flycheck-disabled-checkers '(javascript-jshint javascript-jscs json-jsonlist))
  '(magit-todos-insert-after '(bottom) nil nil "Changed by setter of obsolete option `magit-todos-insert-at'")
- '(package-selected-packages '(tide)))
+ '(package-selected-packages '(tide))
+ '(warning-suppress-types '((use-package) (defvaralias) (lexical-binding))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -32,7 +33,16 @@
 ;; formats the buffer before saving
 ;; (add-hook 'before-save-hook 'tide-format-before-save)
 
-;; if you use typescript-mode
+
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
-;; if you use treesitter based typescript-ts-mode (emacs 29+)
-(add-hook 'typescript-ts-mode-hook #'setup-tide-mode)
+(add-hook 'ng2-ts-mode-hook #'setup-tide-mode)
+
+(add-hook 'typescript-mode-hook
+          (progn
+            (define-key evil-normal-state-map (kbd "M-.") #'tide-jump-to-definition)
+            (define-key evil-normal-state-map (kbd "M-,") #'tide-jump-back)))
+
+(add-hook 'go-mode-hook
+          (progn
+            (define-key evil-normal-state-map (kbd "C-.") #'godef-jump)
+            (define-key evil-normal-state-map (kbd "C-,") #'xref-go-back)))

@@ -12,16 +12,19 @@
  dired-dwim-target t
  css-indent-offset 2
  +magit-hub-features t
- org-agenda-files (directory-files-recursively "~/Library/Mobile Documents/com~apple~CloudDocs/org/" "\.org$")
+ org-agenda-files (directory-files-recursively "~/org/" "\.org$")
  org-super-agenda-groups '((:name "Today"
-                                  :time-grid t
-                                  :sheduled today)
+                            :time-grid t
+                            :sheduled today)
                            (:name "Due today"
-                                  :deadline today)
+                            :deadline today)
                            (:name "Overdue"
-                                  :deadline past)
+                            :deadline past)
                            (:name "Doue soon"
-                                  :deadline future)))
+                            :deadline future)))
+
+;; (setq doom-theme 'doom-bluloco-light)
+(setq doom-theme 'doom-bluloco-dark)
 
 (after! org
   (setq org-fancy-priorities-list '("⚡" "⬆" "⬇" "☕")))
@@ -34,18 +37,25 @@
   (set-company-backend! 'js2-mode '(company-tide :with company-yasnippet)))
 
 (eval-after-load 'web-mode
-    '(progn
-       (add-hook 'web-mode-hook #'add-node-modules-path)
-       (add-hook 'web-mode-hook #'prettier-js-mode)))
+  '(progn
+     (add-hook 'web-mode-hook #'add-node-modules-path)
+     (add-hook 'web-mode-hook #'prettier-js-mode)))
+
+(eval-after-load 'ng2-ts-mode
+  '(progn
+     (add-hook 'web-mode-hook #'add-node-modules-path)
+     (add-hook 'web-mode-hook #'prettier-js-mode)))
 
 (eval-after-load 'typescript-mode
-    '(progn
-       (add-hook 'typescript-mode-hook #'add-node-modules-path)
-       (add-hook 'typescript-mode-hook #'prettier-js-mode)
-       (define-key evil-normal-state-map (kbd "M-.") #'tide-jump-to-definition)))
+  '(progn
+     (add-hook 'typescript-mode-hook #'add-node-modules-path)
+     (add-hook 'typescript-mode-hook #'prettier-js-mode)))
 
 (eval-after-load 'typescript-tsx-mode
-    '(progn
-       (add-hook 'typescript-tsx-mode-hook #'add-node-modules-path)
-       (add-hook 'typescript-tsx-mode-hook #'prettier-js-mode)
-       (define-key evil-normal-state-map (kbd "M-.") #'tide-jump-to-definition)))
+  '(progn
+     (add-hook 'typescript-tsx-mode-hook #'add-node-modules-path)
+     (add-hook 'typescript-tsx-mode-hook #'prettier-js-mode)))
+
+(eval-after-load 'go-mode
+  '(progn
+     (add-hook 'before-save-hook #'gofmt-before-save)))
