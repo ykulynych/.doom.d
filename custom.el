@@ -32,11 +32,7 @@
 
 ;; formats the buffer before saving
 ;; (add-hook 'before-save-hook 'tide-format-before-save)
-
-
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
-(add-hook 'ng2-ts-mode-hook #'setup-tide-mode)
-
 (add-hook 'typescript-mode-hook
           (progn
             (define-key evil-normal-state-map (kbd "M-.") #'tide-jump-to-definition)

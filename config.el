@@ -41,11 +41,6 @@
      (add-hook 'web-mode-hook #'add-node-modules-path)
      (add-hook 'web-mode-hook #'prettier-js-mode)))
 
-(eval-after-load 'ng2-ts-mode
-  '(progn
-     (add-hook 'web-mode-hook #'add-node-modules-path)
-     (add-hook 'web-mode-hook #'prettier-js-mode)))
-
 (eval-after-load 'typescript-mode
   '(progn
      (add-hook 'typescript-mode-hook #'add-node-modules-path)
